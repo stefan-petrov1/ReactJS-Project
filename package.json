@@ -1,0 +1,26 @@
+{
+  "name": "reactjs-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd server && npm i && cd ../client && npm i",
+    "server:prod": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm start",
+    "client:prod": "cd client && npm run prod",
+    "start": "npm run client:dev & npm run server:dev",
+    "start:prod": "npm run client:prod & npm run server:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefan-petrov1/ReactJS-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefan-petrov1/ReactJS-Project/issues"
+  },
+  "homepage": "https://github.com/stefan-petrov1/ReactJS-Project#readme"
+}
