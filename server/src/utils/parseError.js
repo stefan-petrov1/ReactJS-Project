@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export const parseError = (err) => {
+export const parseError = (err, isUniqueError) => {
   let message = err.message || 'Internal Server Error';
   let status = err.status || 500;
 
@@ -9,6 +9,13 @@ export const parseError = (err) => {
       .map((x) => x.properties.message)
       .join(', ');
 
+    status = 400;
+  }
+
+  if (isUniqueError) {
+    const identifier = Object.keys(err.keyValue)[0];
+
+    message = `User with the same ${identifier} already exists`;
     status = 400;
   }
 

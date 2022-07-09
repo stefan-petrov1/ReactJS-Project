@@ -14,6 +14,36 @@ async function getById(id) {
   }
 }
 
+function getByEmail(email) {
+  return User.findOne({ email });
+}
+
+function create(body) {
+  return User.create(body);
+}
+
+async function update(user, data) {
+  if (typeof data === 'object' && Array.isArray(data)) {
+    throw ApiError.badRequest('Invalid body');
+  }
+
+  const updatedValue = {
+    ...user,
+    ...data,
+  };
+
+  await User.updateOne(
+    { _id: user._id },
+    { updatedValue },
+    { runValidators: true }
+  );
+
+  return updatedValue;
+}
+
 export const userService = {
   getById,
+  create,
+  getByEmail,
+  update,
 };

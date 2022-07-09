@@ -19,4 +19,8 @@ export class ApiError {
   static badRequest(message) {
     return new ApiError(400, message);
   }
+
+  static unauthorized() {
+    return new ApiError(401, 'Unauthorized');
+  }
 }
