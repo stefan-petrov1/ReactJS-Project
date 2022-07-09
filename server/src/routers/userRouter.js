@@ -3,6 +3,6 @@ import { userController } from '../controllers/userController.js';
 
 const router = Router();
 
-router.get('/', userController.getById);
+router.get('/:id', userController.getById);
 
 export const userRouter = router;

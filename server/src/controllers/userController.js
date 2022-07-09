@@ -1,10 +1,10 @@
 import { userService } from '../services/userService.js';
 
-function getById(req, res) {
+async function getById(req, res, next) {
   try {
-    userService.getById();
+    return await userService.getById(req.params.id);
   } catch (e) {
-    throw e;
+    next(e);
   }
 }
 
