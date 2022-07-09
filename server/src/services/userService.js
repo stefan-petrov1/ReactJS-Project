@@ -34,7 +34,7 @@ async function update(user, data) {
 
   await User.updateOne(
     { _id: user._id },
-    { updatedValue },
+    { $set: updatedValue },
     { runValidators: true }
   );
 
