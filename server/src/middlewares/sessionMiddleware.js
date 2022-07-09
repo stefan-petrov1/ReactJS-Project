@@ -3,7 +3,11 @@ import { ApiError } from '../config/errors/ApiError.js';
 import { jwtVerify } from '../utils/jwtUtils.js';
 
 export const sessionMiddleware = async (req, res, next) => {
-  const token = req.headers['authorization']?.split(' ')[1];
+  const [authMethod, token] = req.headers['authorization']?.split(' ');
+
+  if (authMethod !== 'Bearer' || !token) {
+    return next();
+  }
 
   if (token) {
     try {
