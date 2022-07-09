@@ -1,7 +1,14 @@
-const app = require('express')();
+import express from 'express';
+import { initDb } from './config/db.js';
+import { routes } from './config/routes.js';
+import { PORT } from './constants.js';
+const app = express();
 
-app.get('/', (req, res) => {
-  res.json({ commit: 'Inital Commit' });
-});
+app.use('/api', routes);
 
-app.listen(3001, () => console.log('Server listening on port 3001...'));
+async function main() {
+  await initDb();
+  app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`));
+}
+
+main();
