@@ -18,7 +18,11 @@ function getByEmail(email) {
   return User.findOne({ email });
 }
 
-function create(body) {
+async function create(body) {
+  if (await User.findOne({ email: body?.email })) {
+    throw ApiError.badRequest('User with the same email already exists');
+  }
+
   return User.create(body);
 }
 

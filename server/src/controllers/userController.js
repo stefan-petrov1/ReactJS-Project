@@ -80,7 +80,7 @@ function createJWT(userData) {
 }
 
 function getPublicData(user) {
-  const { password, email, ...data } = user;
+  const { __v, password, email, ...data } = user;
   return data;
 }
 
