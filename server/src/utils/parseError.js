@@ -6,10 +6,20 @@ export const parseError = (err) => {
 
   if (err instanceof mongoose.Error.ValidationError) {
     message = Object.values(err.errors)
-      .map((x) => x.properties.message)
+      .map((x) => {
+        if (x instanceof mongoose.Error.CastError) {
+          return err.message;
+        }
+
+        return x.properties.message;
+      })
       .join(', ');
 
     status = 400;
+  }
+
+  if (err instanceof mongoose.Error.CastError) {
+    message = err.message;
   }
 
   return {

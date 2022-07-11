@@ -55,11 +55,17 @@ async function login(req, res, next) {
 async function update(req, res, next) {
   try {
     // No need to parse the data because req.user is already parsed
-    const updatedUser = await userService.update(req.user, req.body);
+    const acknowledged = await userService.update(
+      req.params.id,
+      req.body,
+      req.user._id
+    );
 
-    res.status(200).json({
-      user: updatedUser,
-    });
+    if (!acknowledged) {
+      throw ApiError.badRequest('Update Failed');
+    }
+
+    res.sendStatus(204);
   } catch (e) {
     next(e);
   }

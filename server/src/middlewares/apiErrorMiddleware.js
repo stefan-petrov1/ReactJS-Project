@@ -5,7 +5,8 @@ import { parseError } from '../utils/parseError.js';
 export const apiErrorMiddleware = (err, req, res, next) => {
   if (
     !(err instanceof ApiError) &&
-    !(err instanceof mongoose.Error.ValidationError)
+    !(err instanceof mongoose.Error.ValidationError) &&
+    !(err instanceof mongoose.Error.CastError)
   ) {
     console.log(err);
     return apiErrorMiddleware(ApiError.internal(), req, res, next);

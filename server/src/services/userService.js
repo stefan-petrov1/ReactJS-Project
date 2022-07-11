@@ -3,15 +3,17 @@ import { ApiError } from '../config/errors/ApiError.js';
 import { User } from '../models/User.js';
 
 async function getById(id) {
-  try {
-    return await User.findById(id);
-  } catch (e) {
-    if (e instanceof mongoose.Error.CastError) {
-      throw ApiError.badRequest('Invalid User ID');
-    }
-
-    throw e;
+  if (!mongoose.isValidObjectId(id)) {
+    throw ApiError.badRequest('Invalid User ID');
   }
+
+  const user = await User.findById(id);
+
+  if (!user) {
+    throw ApiError.badRequest('No user was found with that ID');
+  }
+
+  return user;
 }
 
 function getByEmail(email) {
@@ -19,30 +21,25 @@ function getByEmail(email) {
 }
 
 async function create(body) {
-  if (await User.findOne({ email: body?.email })) {
-    throw ApiError.badRequest('User with the same email already exists');
-  }
-
   return User.create(body);
 }
 
-async function update(user, data) {
-  if (typeof data === 'object' && Array.isArray(data)) {
+async function update(id, data, currentUserId) {
+  if (typeof data !== 'object' || Array.isArray(data)) {
     throw ApiError.badRequest('Invalid body');
   }
 
-  const updatedValue = {
-    ...user,
-    ...data,
-  };
+  const userDoc = await getById(id);
 
-  await User.updateOne(
-    { _id: user._id },
-    { $set: updatedValue },
-    { runValidators: true }
-  );
+  if (userDoc._id != currentUserId) {
+    throw ApiError.badRequest('Only owner can edit his profile');
+  }
 
-  return updatedValue;
+  const { acknowledged } = await userDoc.updateOne(data, {
+    runValidators: true,
+  });
+
+  return acknowledged;
 }
 
 export const userService = {

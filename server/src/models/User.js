@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, 'Email is required'],
+    validate: {
+      validator: async function (v) {
+        const foundUser = await User.findOne({ email: v });
+        return !Boolean(foundUser);
+      },
+
+      message: (props) => 'User with the same email already exists',
+    },
   },
   password: {
     type: String,
@@ -38,6 +46,17 @@ userSchema.pre('validate', function (next) {
 
 userSchema.post('validate', async function () {
   this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
+});
+
+userSchema.pre('updateOne', async function (next) {
+  if (this._update.password) {
+    this._update.password = await bcrypt.hash(
+      this._update.password,
+      SALT_ROUNDS
+    );
+  }
+
+  next();
 });
 
 userSchema

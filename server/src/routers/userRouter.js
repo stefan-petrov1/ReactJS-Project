@@ -8,6 +8,6 @@ router.get('/me', allowUserMiddleware, userController.getMe);
 router.get('/:id', userController.getById);
 router.post('/register', userController.register);
 router.post('/login', userController.login);
-router.put('/update', allowUserMiddleware, userController.update);
+router.put('/update/:id', allowUserMiddleware, userController.update);
 
 export const userRouter = router;
