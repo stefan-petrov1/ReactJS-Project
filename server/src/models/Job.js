@@ -33,7 +33,7 @@ const jobSchema = new mongoose.Schema({
       },
 
       message: (props) =>
-        'Photos are empty or all must start with http or https',
+        'Photos are empty or some of them do not start with http or https',
     },
   },
   owner: {
