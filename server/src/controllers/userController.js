@@ -1,9 +1,7 @@
 import bcrypt from 'bcrypt';
-import { JWT_SECRET } from '../config/env.js';
 import { ApiError } from '../config/errors/ApiError.js';
-import { JWT_EXPIRE_TIME } from '../constants.js';
+import { jwtService } from '../services/jwtService.js';
 import { userService } from '../services/userService.js';
-import { jwtSign } from '../utils/jwtUtils.js';
 
 // Get by id for profile pages to look at their publications
 async function getById(req, res, next) {
@@ -21,7 +19,7 @@ async function getById(req, res, next) {
 async function register(req, res, next) {
   try {
     const user = getPublicData((await userService.create(req.body)).toObject());
-    const token = await createJWT(user);
+    const token = await jwtService.createJWT(user);
 
     res.status(200).json({
       user,
@@ -43,7 +41,7 @@ async function login(req, res, next) {
       throw ApiError.badRequest('Invalid email or password');
     }
 
-    const token = await createJWT(getPublicData(user));
+    const token = await jwtService.createJWT(getPublicData(user));
 
     res.status(200).json({
       user,
@@ -70,12 +68,6 @@ async function update(req, res, next) {
 function getMe(req, res) {
   res.status(200).json({
     user: req.user,
-  });
-}
-
-function createJWT(userData) {
-  return jwtSign(userData, JWT_SECRET, {
-    expiresIn: JWT_EXPIRE_TIME,
   });
 }
 
