@@ -1,19 +1,29 @@
+import { Route, Routes } from 'react-router-dom';
+import { Login } from './components/auth/Login';
+import { Register } from './components/auth/Register';
+import { Catalog } from './components/catalog/Catalog';
+import { Footer } from './components/common/footer/Footer';
+import { Navbar } from './components/common/navbar/Navbar';
+import { SearchBar } from './components/common/search-bar/SearchBar';
+import { Home } from './components/home/Home';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
+    <>
+      <header>
+        <Navbar />
+        <SearchBar />
       </header>
-    </div>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/catalog" element={<Catalog />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
   );
 }
 

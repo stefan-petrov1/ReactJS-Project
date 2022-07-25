@@ -1,0 +1,36 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 99;
+
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+
+  padding: 1em;
+  height: 25px;
+
+  background-color: rgb(229, 238, 245);
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+
+  flex: 1;
+}
+
+.search-input {
+  flex: 1;
+  max-width: 300px;
+  padding: 10px;
+  border: 0;
+}
+
+.search-button {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+}

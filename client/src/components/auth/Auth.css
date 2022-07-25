@@ -1,0 +1,182 @@
+@media only screen and (max-width: 600px) {
+  .sign-container {
+    width: 250px !important;
+    height: 580px !important;
+  }
+
+  .login-container {
+    height: 433px !important;
+  }
+
+  .sign-in-field-input {
+    width: 150px !important;
+    font-size: 12px !important;
+  }
+
+  .sign-in-field-input::placeholder {
+    font-size: 12px !important;
+  }
+
+  .age-agreement-container {
+    width: 170px !important;
+  }
+
+  .age-label {
+    font-size: 10px;
+  }
+
+  .sign-btn {
+    width: 174px !important;
+    font-size: 15px !important;
+    height: 30px !important;
+    margin-top: 20px !important;
+  }
+
+  .sign-buttons-container > button {
+    width: fit-content !important;
+    font-size: 15px !important;
+    margin: 0 10px !important;
+  }
+
+  .sign-options-text {
+    margin: 20px 0 !important;
+    font-size: 13px;
+  }
+
+  .sign-already-a-user {
+    font-size: 12px;
+  }
+}
+
+.sign-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.sign-container-flexbox {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sign-container {
+  position: relative;
+
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.35);
+
+  width: 400px;
+  height: 660px;
+}
+
+.sign-in-field-input {
+  width: 300px;
+  height: 40px;
+  margin: 10px;
+  padding-left: 20px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  border: 1px solid rgba(185, 185, 185, 0.35);
+  border-radius: 5px;
+  background-color: rgba(185, 185, 185, 0.35);
+}
+
+.sign-in-field-input::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sign-up-facebook-btn {
+  border: 1px solid rgb(2, 123, 208);
+  background-color: rgb(2, 123, 208);
+}
+
+.sign-up-facebook-btn:hover {
+  color: rgb(2, 123, 208);
+  background-color: white;
+}
+
+.sign-up-google-btn {
+  border: 1px solid rgb(51, 168, 82);
+  background-color: rgb(51, 168, 82);
+}
+
+.sign-up-google-btn:hover {
+  color: rgb(51, 168, 82);
+  background-color: white;
+}
+
+.sign-buttons-container > button {
+  padding: 0.4em 0.9em;
+  border-radius: 5px;
+  width: fit-content;
+
+  color: white;
+
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 20px;
+
+  transition: background-color 0.1s, color 0.1s;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.sign-options-text {
+  margin: 40px 0;
+}
+
+.sign-already-a-user {
+  position: absolute;
+  bottom: 20px;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-btn {
+  width: 324px;
+  height: 50px;
+  margin: 10px 50px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  border-radius: 5px;
+  border: 1px solid rgb(229, 238, 244);
+  background-color: rgb(229, 238, 244);
+
+  cursor: pointer;
+}
+
+.age-agreement-container {
+  margin: 10px;
+  width: 320px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.age-label {
+  margin-left: 5px;
+}
+
+.age-checkbox {
+  cursor: pointer;
+}
+
+.login-container {
+  height: 503px;
+}
