@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
+import hamburgerIcon from './images/Hamburger_icon.svg.png';
+import logo from './images/logo.png';
 import './Navbar.css';
 
 export const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <img className="logo" src="images/logo.png" alt="No Logo" />
+        <img className="logo" src={logo} alt="No Logo" />
 
         <Link className="nav-bar-home-link" to="/">
           <p className="logo-text">
@@ -17,7 +19,7 @@ export const Navbar = () => {
       <div className="hamburger-menu-container">
         <img
           className="hamburger-menu-icon"
-          src="images/Hamburger_icon.svg.png"
+          src={hamburgerIcon}
           alt="No Menu"
         />
       </div>

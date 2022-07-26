@@ -3,13 +3,11 @@ import { CatalogProduct } from './catalog-product/CatalogProduct';
 import './Catalog.css';
 import { PaginationButton } from './pagination-button/PaginationButton';
 
-const productThreshHold = 4;
-
 export const Catalog = () => {
   const [posts, setPosts] = useState([]);
   const [selectedPage, setSelectedPage] = useState(1);
 
-  const pages = Math.floor(posts.length / productThreshHold);
+  const pages = Math.floor(posts.length / 4) || 1;
   const paginationButtons = [];
 
   const changePageHandler = (num) => {
@@ -62,7 +60,11 @@ export const Catalog = () => {
                 <p className="filter-text">All</p>
               </div>
               <div className="product-filter-container">
-                <input className="filter-checkbox" type="checkbox" />
+                <input
+                  className="filter-checkbox"
+                  value=">= 100 AND <= 499"
+                  type="checkbox"
+                />
                 <p className="filter-text">100 - 499$</p>
               </div>
               <div className="product-filter-container">

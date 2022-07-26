@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
+
 import './Home.css';
+import getStartedIcon from './images/get-started-icon.png';
+import handshakeImage from './images/handshake.webp';
+import howItWorksIcon from './images/how-it-works-icon.png';
+import whatIsItIcon from './images/what-is-it-icon.png';
 
 export const Home = () => {
   return (
@@ -19,10 +24,7 @@ export const Home = () => {
       <article className="site-introduction">
         <div className="intro-div-container">
           <div className="intro-div">
-            <img
-              className="get-started-icon"
-              src="images/get-started-icon.png"
-            />
+            <img className="get-started-icon" src={getStartedIcon} />
             <p className="intro-title">Get started!</p>
             <p className="intro-description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
@@ -32,10 +34,7 @@ export const Home = () => {
             </p>
           </div>
           <div className="intro-div">
-            <img
-              className="how-it-works-icon"
-              src="images/how-it-works-icon.png"
-            />
+            <img className="how-it-works-icon" src={howItWorksIcon} />
             <p className="intro-title">How it works?</p>
             <p className="intro-description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
@@ -45,7 +44,7 @@ export const Home = () => {
             </p>
           </div>
           <div className="intro-div">
-            <img className="what-is-it-icon" src="images/what-is-it-icon.png" />
+            <img className="what-is-it-icon" src={whatIsItIcon} />
             <p className="intro-title">What is it?</p>
             <p className="intro-description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
@@ -65,7 +64,7 @@ export const Home = () => {
             aliquam odit dolores nihil ad incidunt, non, vitae adipisci fuga
             explicabo est repudiandae.
           </p>
-          <img className="handshake-image" src="images/handshake.webp" />
+          <img className="handshake-image" src={handshakeImage} />
         </div>
       </article>
       <hr className="divider" />
