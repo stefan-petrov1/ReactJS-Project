@@ -1,1 +1,0 @@
-curl -o data.json -d '{"username": "peter@abv.bg", "password": "123456"}' -H "Content-Type: application/json" -X POST http://localhost:3030/users/register
