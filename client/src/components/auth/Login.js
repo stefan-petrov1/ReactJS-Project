@@ -1,7 +1,23 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Auth.css';
 
+const initialInputs = { email: '', password: '' };
+
 export const Login = () => {
+  const [inputFields, setInputFields] = useState(initialInputs);
+
+  const onFieldChange = ({ target }) => {
+    setInputFields((v) => ({
+      ...v,
+      [target.id]: target.value,
+    }));
+  };
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <article className="sign-container-flexbox">
       <div className="sign-container login-container">
@@ -13,6 +29,7 @@ export const Login = () => {
             type="text"
             name="email"
             id="email"
+            onChange={onFieldChange}
           />
           <input
             className="sign-in-field-input"
@@ -20,6 +37,7 @@ export const Login = () => {
             type="password"
             name="password"
             id="password"
+            onChange={onFieldChange}
           />
           <button className="sign-btn">Login</button>
         </form>

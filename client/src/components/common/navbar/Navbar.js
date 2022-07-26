@@ -28,7 +28,7 @@ export const Navbar = () => {
           <Link to="/register">Sign up</Link>
         </div>
         <div className="user-section navbar-section">
-          <Link to="/profile">Profile</Link>
+          <Link to="/profile">Create</Link>
           <a className="logout-anchor">Logout</a>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 export const Home = () => {
@@ -10,7 +11,9 @@ export const Home = () => {
           <p className="site-brief-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
-          <button className="site-get-started-btn">Get Started</button>
+          <Link to="/catalog" className="site-get-started-btn">
+            Get Started
+          </Link>
         </div>
       </article>
       <article className="site-introduction">

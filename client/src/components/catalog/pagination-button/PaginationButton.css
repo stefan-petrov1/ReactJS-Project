@@ -1,0 +1,28 @@
+.pagination-button {
+  border: 1px solid white;
+  background-color: white;
+  color: rgb(2, 123, 208);
+
+  padding: 0.4em 0.9em;
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  transition: background-color 0.1s, color 0.1s;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.35);
+
+  cursor: pointer;
+}
+
+.selected-pagination-button {
+  border: 1px solid rgb(2, 123, 208);
+  background-color: rgb(2, 123, 208);
+  color: white;
+  cursor: default;
+}
+
+.pagination-button:hover {
+  border: 1px solid rgb(2, 123, 208);
+  background-color: rgb(2, 123, 208);
+  color: white;
+}
