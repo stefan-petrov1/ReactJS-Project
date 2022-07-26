@@ -6,13 +6,13 @@ import { PaginationButton } from './pagination-button/PaginationButton';
 export const Catalog = () => {
   const [posts, setPosts] = useState([]);
   const [selectedPage, setSelectedPage] = useState(1);
-
   const pages = Math.floor(posts.length / 4) || 1;
-  const paginationButtons = [];
 
   const changePageHandler = (num) => {
     setSelectedPage(num);
   };
+
+  const paginationButtons = [];
 
   for (let i = 1; i <= pages; i++) {
     paginationButtons.push(

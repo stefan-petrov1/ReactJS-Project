@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
+import { CatalogDetails } from './components/catalog-details/CatalogDetails';
 import { Catalog } from './components/catalog/Catalog';
 import { Footer } from './components/common/footer/Footer';
 import { Navbar } from './components/common/navbar/Navbar';
@@ -20,7 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/catalog/:id" element={<Catalog />} />
+          <Route path="/catalog/:id" element={<CatalogDetails />} />
         </Routes>
       </main>
       <Footer />
