@@ -1,4 +1,6 @@
 .product-card {
+  text-decoration: none;
+
   position: relative;
   flex: 1;
 

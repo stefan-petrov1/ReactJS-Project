@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './CatalogProduct.css';
 
 const titleThreshold = 20;
@@ -16,7 +16,7 @@ export const CatalogProduct = ({ post }) => {
       : post.title;
 
   return (
-    <div className="product-card" onClick={onProductClick}>
+    <Link to={post._id} className="product-card">
       <div className="product-preview">
         <img className="product-image" src={post.imageUrl} />
         <p className="product-title">{title}</p>
@@ -26,6 +26,6 @@ export const CatalogProduct = ({ post }) => {
         <p className="product-buy-now-text">BUY NOW</p>
         <p className="product-price">${post.price}</p>
       </div>
-    </div>
+    </Link>
   );
 };

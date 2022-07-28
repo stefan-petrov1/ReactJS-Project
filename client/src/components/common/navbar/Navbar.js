@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import hamburgerIcon from './images/Hamburger_icon.svg.png';
 import logo from './images/logo.png';
+import shoppingCartIcon from './images/shopping-cart-icon.png';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -25,13 +26,21 @@ export const Navbar = () => {
       </div>
       <div className="right-section">
         <Link to="/catalog">Catalog</Link>
-        <div className="guest-section navbar-section">
+        {/* <div className="guest-section navbar-section">
           <Link to="/login">Log In</Link>
           <Link to="/register">Sign up</Link>
-        </div>
+        </div> */}
         <div className="user-section navbar-section">
           <Link to="/profile">Create</Link>
           <a className="logout-anchor">Logout</a>
+
+          <Link to={'/cart'} className="shopping-cart-container">
+            <img
+              className="shopping-cart-icon"
+              alt="Shopping Cart"
+              src={shoppingCartIcon}></img>
+            <p className="shopping-cart-item-count">2</p>
+          </Link>
         </div>
       </div>
     </nav>
