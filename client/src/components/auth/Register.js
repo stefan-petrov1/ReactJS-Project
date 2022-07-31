@@ -3,34 +3,39 @@ import './Auth.css';
 
 export const Register = () => {
   return (
-    <article className="sign-container-flexbox">
-      <div className="sign-container">
+    <article className="sign-container-center">
+      <div className="sign-container register-container">
         <p className="sign-title">SIGN UP</p>
         <form className="sign-form">
-          <input
-            className="sign-in-field-input"
-            placeholder="Name"
-            type="text"
-            name="name"
-          />
-          <input
-            className="sign-in-field-input"
-            placeholder="Email"
-            type="text"
-            name="email"
-          />
-          <input
-            className="sign-in-field-input"
-            placeholder="Password"
-            type="password"
-            name="password"
-          />
-          <input
-            className="sign-in-field-input"
-            placeholder="Password"
-            type="password"
-            name="repeat-password"
-          />
+          <div className="sign-field-input-container">
+            <input
+              className="sign-in-field-input"
+              placeholder="Email"
+              type="text"
+              name="email"
+            />
+            <p className="sign-error">Image urk should be valid</p>
+          </div>
+
+          <div className="sign-field-input-container">
+            <input
+              className="sign-in-field-input"
+              placeholder="Password"
+              type="password"
+              name="password"
+            />
+            <p className="sign-error">Image urk should be valid</p>
+          </div>
+          <div className="sign-field-input-container">
+            <input
+              className="sign-in-field-input"
+              placeholder="Password"
+              type="password"
+              name="repeat-password"
+            />
+
+            <p className="sign-error">Image urk should be valid</p>
+          </div>
           <div className="age-agreement-container">
             <input className="age-checkbox" type="checkbox" name="over18" />
             <label className="age-label" htmlFor="over18">

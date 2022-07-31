@@ -14,31 +14,33 @@ export const Login = () => {
     }));
   };
 
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <article className="sign-container-flexbox">
+    <article className="sign-container-center">
       <div className="sign-container login-container">
         <p className="sign-title">LOGIN</p>
         <form className="sign-form">
-          <input
-            className="sign-in-field-input"
-            placeholder="Email"
-            type="text"
-            name="email"
-            id="email"
-            onChange={onFieldChange}
-          />
-          <input
-            className="sign-in-field-input"
-            placeholder="Password"
-            type="password"
-            name="password"
-            id="password"
-            onChange={onFieldChange}
-          />
+          <div className="sign-field-input-container">
+            <input
+              className="sign-in-field-input"
+              placeholder="Email"
+              type="text"
+              name="email"
+              id="email"
+              onChange={onFieldChange}
+            />
+            <p className="sign-error">Image urk should be valid</p>
+          </div>
+          <div className="sign-field-input-container">
+            <input
+              className="sign-in-field-input"
+              placeholder="Password"
+              type="password"
+              name="password"
+              id="password"
+              onChange={onFieldChange}
+            />
+            <p className="sign-error">Image urk should be valid</p>
+          </div>
           <button className="sign-btn">Login</button>
         </form>
         <p className="sign-options-text">Or login with</p>

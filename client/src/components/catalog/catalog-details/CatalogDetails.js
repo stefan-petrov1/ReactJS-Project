@@ -41,7 +41,7 @@ export const CatalogDetails = (props) => {
             <div>
               <div className="details-price-container">
                 <p>Current Price</p>
-                <p>US ${post.price}</p>
+                <p>${post.price}</p>
               </div>
 
               <button className="details-buy-button">ADD TO CART</button>

@@ -1,15 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './CatalogProduct.css';
 
 const titleThreshold = 20;
 
 export const CatalogProduct = ({ post }) => {
-  const navigate = useNavigate();
-
-  const onProductClick = () => {
-    navigate(`/catalog/${post._id}`);
-  };
-
   const title =
     post.title?.length >= titleThreshold
       ? post.title.substring(0, titleThreshold - 4) + '...'

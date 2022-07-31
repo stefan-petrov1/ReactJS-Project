@@ -1,7 +1,4 @@
 @media only screen and (max-width: 730px) {
-  .cart-container {
-  }
-
   .cart-item-container {
     margin-top: 10% !important;
   }
@@ -16,6 +13,10 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .cart-checkout-btn {
+    margin-bottom: 200px !important;
+  }
+
   .cart-item-title {
     font-size: 15px !important;
   }

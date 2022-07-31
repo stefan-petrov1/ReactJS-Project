@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import hamburgerIcon from './images/Hamburger_icon.svg.png';
 import logo from './images/logo.png';
 import shoppingCartIcon from './images/shopping-cart-icon.png';
 import './Navbar.css';
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -17,21 +16,21 @@ export const Navbar = () => {
           </p>
         </Link>
       </div>
-      <div className="hamburger-menu-container">
+      {/* <div className="hamburger-menu-container">
         <img
           className="hamburger-menu-icon"
           src={hamburgerIcon}
           alt="No Menu"
         />
-      </div>
+      </div> */}
       <div className="right-section">
         <Link to="/catalog">Catalog</Link>
-        {/* <div className="guest-section navbar-section">
+        <div className="guest-section navbar-section">
           <Link to="/login">Log In</Link>
           <Link to="/register">Sign up</Link>
-        </div> */}
+        </div>
         <div className="user-section navbar-section">
-          <Link to="/profile">Create</Link>
+          <Link to="/create">Create</Link>
           <a className="logout-anchor">Logout</a>
 
           <Link to={'/cart'} className="shopping-cart-container">
@@ -39,7 +38,7 @@ export const Navbar = () => {
               className="shopping-cart-icon"
               alt="Shopping Cart"
               src={shoppingCartIcon}></img>
-            <p className="shopping-cart-item-count">2</p>
+            <p className="shopping-cart-item-count">3</p>
           </Link>
         </div>
       </div>

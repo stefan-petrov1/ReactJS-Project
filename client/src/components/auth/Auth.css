@@ -49,6 +49,16 @@
   }
 }
 
+@media only screen and (max-height: 820px) {
+  .sign-container-center {
+    top: 53% !important;
+  }
+
+  .register-container {
+    height: 473px !important;
+  }
+}
+
 .sign-title {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -56,11 +66,11 @@
   font-weight: 500;
 }
 
-.sign-container-flexbox {
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.sign-container-center {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .sign-container {
@@ -180,4 +190,16 @@
 
 .login-container {
   height: 503px;
+}
+
+.sign-field-input-container {
+  position: relative;
+}
+
+.sign-error {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  left: 10px;
+  bottom: -2px;
 }

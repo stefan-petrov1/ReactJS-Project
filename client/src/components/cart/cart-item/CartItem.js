@@ -15,7 +15,7 @@ export const CartItem = ({ imageUrl, title, id, price }) => {
         <p className="cart-item-price">Price: ${price}</p>
       </div>
 
-      <span class="close">&times;</span>
+      <span className="close">&times;</span>
     </div>
   );
 };
