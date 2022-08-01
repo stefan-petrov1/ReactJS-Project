@@ -5,7 +5,6 @@ const initialState = { error: undefined, data: undefined };
 
 export const useFetch = (url) => {
   const fetchReducer = (state, action) => {
-    console.log(state, action);
     switch (action.type) {
       case 'loading':
         return { ...initialState };
@@ -47,10 +46,6 @@ export const useFetch = (url) => {
         const response = await fetch(`${url}${endpoint}`, options);
 
         if (!response.ok) {
-          // if (response.status == 403) {
-          //   localStorage.removeItem(localStorageAuthKey);
-          // }
-
           const error = await response.json();
           throw new Error(error.message);
         }

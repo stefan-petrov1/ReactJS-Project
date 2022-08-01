@@ -4,7 +4,6 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 export const ProtectedRoute = ({ onlyUser }) => {
   const { isAuthenticated } = useContext(AuthContext);
-  console.log(isAuthenticated);
 
   if ((onlyUser && !isAuthenticated) || (!onlyUser && isAuthenticated)) {
     return <Navigate to={'/'} replace />;

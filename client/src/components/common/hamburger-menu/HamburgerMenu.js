@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import './HamburgerMenu.css';
 
-export const HamburgerMenu = (props) => {
+export const HamburgerMenu = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
   const userSection = (
@@ -40,7 +40,7 @@ export const HamburgerMenu = (props) => {
   );
 
   return (
-    <Menu right disableCloseOnEsc className="hamburger-menu" {...props}>
+    <Menu right disableCloseOnEsc className="hamburger-menu">
       <Link className="bm-item menu-item" to="/">
         Home
       </Link>
