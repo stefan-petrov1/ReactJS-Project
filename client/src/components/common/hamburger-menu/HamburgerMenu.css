@@ -83,3 +83,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
   right: 0;
   background: rgba(0, 0, 0, 0.3);
 }
+
+.bm-section-separator {
+  border-bottom: 2px solid black;
+  margin: 10px;
+}

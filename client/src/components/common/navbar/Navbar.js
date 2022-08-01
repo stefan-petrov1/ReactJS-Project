@@ -1,9 +1,29 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
 import logo from './images/logo.png';
 import shoppingCartIcon from './images/shopping-cart-icon.png';
 import './Navbar.css';
 
 export const Navbar = (props) => {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const userSection = (
+    <div className="user-section navbar-section">
+      <Link to="/create">Create</Link>
+      <Link to="/logout" className="logout-anchor">
+        Logout
+      </Link>
+    </div>
+  );
+
+  const guestSection = (
+    <div className="guest-section navbar-section">
+      <Link to="/login">Log In</Link>
+      <Link to="/register">Sign up</Link>
+    </div>
+  );
+
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -16,31 +36,16 @@ export const Navbar = (props) => {
           </p>
         </Link>
       </div>
-      {/* <div className="hamburger-menu-container">
-        <img
-          className="hamburger-menu-icon"
-          src={hamburgerIcon}
-          alt="No Menu"
-        />
-      </div> */}
       <div className="right-section">
         <Link to="/catalog">Catalog</Link>
-        <div className="guest-section navbar-section">
-          <Link to="/login">Log In</Link>
-          <Link to="/register">Sign up</Link>
-        </div>
-        <div className="user-section navbar-section">
-          <Link to="/create">Create</Link>
-          <a className="logout-anchor">Logout</a>
-
-          <Link to={'/cart'} className="shopping-cart-container">
-            <img
-              className="shopping-cart-icon"
-              alt="Shopping Cart"
-              src={shoppingCartIcon}></img>
-            <p className="shopping-cart-item-count">3</p>
-          </Link>
-        </div>
+        {isAuthenticated ? userSection : guestSection}
+        <Link to="/cart" className="shopping-cart-container">
+          <img
+            className="shopping-cart-icon"
+            alt="Shopping Cart"
+            src={shoppingCartIcon}></img>
+          <p className="shopping-cart-item-count">3</p>
+        </Link>
       </div>
     </nav>
   );

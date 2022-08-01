@@ -1,31 +1,50 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { useFetch } from '../../hooks/useFetch';
 import './Auth.css';
 
 const initialInputs = { email: '', password: '' };
+const baseUrl = 'http://localhost:3030/users';
 
 export const Login = () => {
   const [inputFields, setInputFields] = useState(initialInputs);
+  const { loginUser } = useContext(AuthContext);
+  const [{ data, error }, { post }] = useFetch(baseUrl);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Loading or Error state
+    if (error || !data) return;
+
+    loginUser(data.accessToken, data.email, data._id);
+    navigate('/');
+  }, [data, error, loginUser, navigate]);
 
   const onFieldChange = ({ target }) => {
     setInputFields((v) => ({
       ...v,
-      [target.id]: target.value,
+      [target.name]: target.value,
     }));
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    post('/login', inputFields);
   };
 
   return (
     <article className="sign-container-center">
       <div className="sign-container login-container">
         <p className="sign-title">LOGIN</p>
-        <form className="sign-form">
+        <form className="sign-form" onSubmit={onSubmit}>
           <div className="sign-field-input-container">
             <input
               className="sign-in-field-input"
               placeholder="Email"
-              type="text"
+              type="email"
               name="email"
-              id="email"
               onChange={onFieldChange}
             />
             <p className="sign-error">Image urk should be valid</p>
@@ -36,7 +55,6 @@ export const Login = () => {
               placeholder="Password"
               type="password"
               name="password"
-              id="password"
               onChange={onFieldChange}
             />
             <p className="sign-error">Image urk should be valid</p>
